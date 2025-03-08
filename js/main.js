@@ -1,5 +1,4 @@
 $(function() {
-
     init();
   
     // Event Listeners
@@ -35,13 +34,14 @@ $(function() {
   
     // Functions
     function init() {
+      console.log($('#fakeloader')); // Debugging
       $('#fakeloader').fakeLoader({
-        timeToHide: 1200,
-        zIndex: '9999',
-        spinner: 'spinner1',
-        bgColor: '#192bc2'
+          timeToHide: 1200,
+          zIndex: '9999',
+          spinner: 'spinner5',  // Try a different spinner
+          bgColor: '#192bc2'
       });
-  
+      
       $('#page').show();
   
       new WOW().init();
