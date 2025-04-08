@@ -1,13 +1,74 @@
-<html>
-    Hey, I'm Dan!
-    <body>
-        <h2>About Me</h2>
-        <p>
-            I like to snowboard and hike in my state Colorado
-        </p>
-        <h2>What I'm Working On</h2>
-        <p>
-            I'm diving into cybersecurity, about to finish the Google Cybersecurity Propessional Certificate
-        </p>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dark-mode">
+  <header>
+    <h1>My Cybersecurity Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hi, I'm a cybersecurity enthusiast working toward certifications and transitioning into the field. I enjoy defending networks, staying ahead of threats, and always learning something new.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Log Analysis Tool</h3>
+      <p>A Python-based tool for parsing and analyzing logs to detect suspicious activity.</p>
+    </div>
+    <div class="project">
+      <h3>Firewall Rule Validator</h3>
+      <p>A script that reviews and suggests optimizations for firewall rule configurations.</p>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2>Blog</h2>
+    <div class="post">
+      <h3>How I'm Preparing for the Security+ Exam</h3>
+      <p>A breakdown of my study plan, resources, and tips for tackling the Security+ certification.</p>
+    </div>
+    <div class="post">
+      <h3>Linux Hardening Basics</h3>
+      <p>Simple steps to secure your Linux system and improve your cyber hygiene.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+    <p id="formMessage"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
 </html>
