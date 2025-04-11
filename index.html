@@ -1,89 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Meta -->
+ <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Denver-Based Developer focused in creating an interesting life.">
-    <meta name="keywords" content="Developer, Security Analyst, MySQL, Python, Java, Daniel J. L'Episcopo">
-    <!-- END Meta -->
-
-    <!-- CSS -->
-    <link rel="shortcut icon" type="image/png" href="images/Circle Profile Picture.png">
-    <link rel="icon" type="image/png" href="./images/Circle Profile Picture.png">
-    <link rel="stylesheet" href="styles.css"/>
-    <title>Daniel J. L'Episcopo Cybersecurity Portfolio</title>
-    <!-- END CSS -->
-</head>
-<body class="dark-mode">
-  <header>
-    <h1>Daniel J. L'Episcopo Cybersecurity Portfolio</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daniel L'Episcopo Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+ </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Daniel L'Episcopo</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </nav>
-  </header>
-  
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hi, I'm a cybersecurity enthusiast working toward certifications and transitioning into the field. I enjoy defending networks, staying ahead of threats, and always learning something new.</p>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Log Analysis Tool</h3>
-      <p>A Python-based tool for parsing and analyzing logs to detect suspicious activity.</p>
-    </div>
-    <div class="project">
-      <h3>Firewall Rule Validator</h3>
-      <p>A script that reviews and suggests optimizations for firewall rule configurations.</p>
-    </div>
-  </section>
-
-  <section id="blog">
-    <h2>Blog</h2>
-    <div class="blog-grid">
-      <a href="https://danieljlepisopo.hashnode.dev/security-plus-study-plan" target="_blank" class="blog-card">
-        <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1712439046123/example-thumb-1.png" alt="Security+ Study Plan Thumbnail">
-        <h3>How I'm Preparing for the Security+ Exam</h3>
-      </a>
-      <a href="https://danieljlepisopo.hashnode.dev/linux-hardening-basics" target="_blank" class="blog-card">
-        <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1712439059187/example-thumb-2.png" alt="Linux Hardening Thumbnail">
-        <h3>Linux Hardening Basics</h3>
-      </a>
-    </div>
-    <p>Check out my latest cybersecurity articles on <a href="https://danieljlepisopo.hashnode.dev" target="_blank">my Hashnode blog</a>!</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <form id="contactForm">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <button type="submit">Send</button>
-    </form>
-    <p id="formMessage"></p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
-  </footer>
-
-  <!--JavaScript -->
-  <script src="main.js"></script>
-</body>
+    <nav id="hamburger-nav">
+      <div class="logo">Daniel L'Episcopo</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section_pic-container">
+        <img src="./images/Circle Profile Picture.png" alt="Daniel L'Episcopo profile picture">
+      </div>
+    </section>
+    <script src="main.js"></script>
+  </body>
 </html>
