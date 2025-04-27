@@ -379,6 +379,12 @@ article .icon {
   color: black;
 }
 
+.project-description {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #aaa; 
+}
+
 .project-btn {
   color: black;
   border-color: rgb(163, 163, 163);
