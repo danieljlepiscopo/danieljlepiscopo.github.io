@@ -375,6 +375,11 @@ article .icon {
   border-radius: 2rem;
 }
 
+.project-img:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
 .project-title {
   margin: 1rem;
   color: black;
