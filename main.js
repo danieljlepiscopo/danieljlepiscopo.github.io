@@ -1,3 +1,4 @@
+// toggleMenu for Mobile
 function toggleMenu() {
     const menu = document.querySelector(".menu-links");
     const icon = document.querySelector(".hamburger-icon");
@@ -5,50 +6,82 @@ function toggleMenu() {
     icon.classList.toggle("open");
 }
 
-const blogPosts = [
-    {
-      title: "My Cybersecurity Roadmap",
-      date: "April 12th, 2025",
-      image: "./assets/rohan-ZoXCoH7tja0-unsplash.jpg",
-      snippet: "I turned 30 and I'm diving into cybersecurity headfirst. Here's how I plan to build a foundation, earn certs, and land a job in blue team security.",
-      url: "https://medium.com/@danieljlepiscopo/my-cybersecurity-roadmap-where-im-starting-and-where-i-m-headed-466ba41d7680"
-    },
-    {
-      title: "Analyzing Network Traffic in Wireshark and tcpdump",
-      date: "April 19th, 2025",
-      image: "./assets/pexels-tima-miroshnichenko-5380640.jpg",
-      snippet: "A technical walkthrough on how to analyze network traffic using Wireshark and tcpdump, highlighting practical tips for packet inspection and threat detection.",
-      url: "https://medium.com/@danieljlepiscopo/analyzing-network-traffic-in-wireshark-and-tcpdump-cd96b5f3410a"
-    },
-    {
-      title: "Introduction to Splunk: Collect, Search, and Detect",
-      date: "April 30th, 2025",
-      image: "./assets/kaur-kristjan-CpPF4W5PB1c-unsplash.jpg",
-      snippet: "A beginner-friendly guide to Splunk that covers setup, data ingestion, log searching with SPL, threat detection, and curated resources to help new blue teamers get hands-on quickly.",
-      url: "https://medium.com/@danieljlepiscopo/introduction-to-splunk-collect-search-and-detect-940dcd47b555"
-    }
-  ];
-  
-  function renderBlogPosts() {
-    const blogContainer = document.getElementById('blog-posts');
-    blogPosts.forEach(post => {
-      const postHTML = `
-        <div class="blog-post details-container color-container">
-          <div class="article-container">
-            <img src="${post.image}" alt="${post.title}" class="blog-post-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">${post.title}</h2>
-          <p class="blog-post-date">Posted on ${post.date}</p>
-          <p class="blog-post-snippet">${post.snippet}</p>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="window.open('${post.url}', '_blank')">
-              Read on Medium
-            </button>
-          </div>
-        </div>
-      `;
-      blogContainer.innerHTML += postHTML;
+// Fetching blog data from Medium using RSS feed via rss2json API
+async function fetchRSS() {
+  const rssUrl = 'https://medium.com/feed/@danieljlepiscopo';
+  const apiKey = "tdpcptwobb0tsyrt5esqweq18ndspvknrpnfu4ta";
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&api_key=${apiKey}`;
+
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+    const data = await response.json();
+    console.log("📦 RSS Feed Data:", data);
+
+    if (data.status !== 'ok') throw new Error(`API error: ${data.message}`);
+    const blogPosts = data.items.slice(0, 3).reverse().map(item => {
+      // Extract first image from content, or use a default
+      const imageMatch = item.content.match(/<img.*?src=["'](.*?)["']/);
+      const image = imageMatch ? imageMatch[1] : "./assets/default-blog-image.jpg";
+
+      return {
+        title: item.title || "Untitled",
+        date: new Date(item.pubDate).toDateString(),
+        link: item.link || "#",
+        snippet: stripHTML(item.description).substring(0, 200) + "...",
+        image
+      };
     });
+
+// We'll populate the blog with the renderBlogPosts(), throw an error if they're not populating
+    renderBlogPosts(blogPosts);
+  } catch (error) {
+    console.error("❌ Failed to fetch or parse blog posts:", error);
+    displayFeedError();
   }
-  
-  document.addEventListener('DOMContentLoaded', renderBlogPosts);
+}
+
+// Convert the extracted blog data into HTML and inject it into the page
+function renderBlogPosts(posts) {
+  const blogContainer = document.getElementById("blog-posts");
+  blogContainer.innerHTML = "";
+
+  posts.forEach(post => {
+    const postHTML = `
+      <div class="blog-post details-container color-container">
+        <div class="article-container">
+          <img src="${post.image}" alt="${post.title}" class="blog-post-img" />
+        </div>
+        <h2 class="experience-sub-title project-title">${post.title}</h2>
+        <p class="blog-post-date">Posted on ${post.date}</p>
+        <p class="blog-post-snippet">${post.snippet}</p>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="window.open('${post.link}', '_blank')">
+            Read on Medium
+          </button>
+        </div>
+      </div>
+    `;
+    blogContainer.innerHTML += postHTML;
+  });
+}
+
+// Strip out any HTML tags from the blog snippet to get clean text
+function stripHTML(html) {
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = html;
+  return tempDiv.textContent || tempDiv.innerText || "";
+}
+
+// Display fallback message if fetching the RSS feed fails
+function displayFeedError() {
+  const blogContainer = document.getElementById("blog-posts");
+  blogContainer.innerHTML = `
+    <div class="details-container color-container blog-post">
+      <p class="blog-post-snippet">⚠️ Unable to load blog posts at this time. Please check back later.</p>
+    </div>
+  `;
+}
+
+// Start everything once the page is fully loaded
+document.addEventListener('DOMContentLoaded', fetchRSS);

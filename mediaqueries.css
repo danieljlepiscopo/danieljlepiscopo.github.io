@@ -45,6 +45,9 @@
     .about-containers {
         margin-top: 0;
     }
+    #youtube .video-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
 }
 
 @media screen and (max-width: 600px) {
@@ -105,6 +108,9 @@
     .text-container {
         text-align: justify;
     }
+    #youtube .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     .medium-banner {
         padding: 0.75rem 1.25rem;
         font-size: 1rem;
