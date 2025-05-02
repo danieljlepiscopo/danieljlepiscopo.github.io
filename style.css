@@ -5,14 +5,12 @@
 /* Importing Google Font: Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-/* Reset default spacing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Base body styles */
 body {
   font-family: "Poppins", sans-serif;
   background-color: #fff;
@@ -20,12 +18,10 @@ body {
   line-height: 1.6;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Default paragraph color */
 p {
   color: rgb(85, 85, 85);
 }
@@ -153,7 +149,7 @@ a:hover {
 
 section {
   padding-top: 4vh;
-  height: 96vh;
+  min-height: 96vh;
   margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
@@ -262,7 +258,9 @@ section {
 }
 
 .btn-color-2:hover {
-  border: rgb(255, 255, 255) 0.1rem solid;
+  background-color: black;
+  color: white;
+  border: black 0.1rem solid;
 }
 
 /* ------------------------------------
@@ -307,12 +305,6 @@ section {
 .section-container {
   gap: 4rem;
   height: 72%;
-}
-
-.section__pic-container {
-  height: 400px;
-  width: 400px;
-  margin: auto 0;
 }
 
 /* ------------------------------------

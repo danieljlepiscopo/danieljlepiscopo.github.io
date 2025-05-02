@@ -1,122 +1,179 @@
+/* --------- Base large screen fallback (min-width: 1201px) --------- */
+@media screen and (min-width: 1201px) {
+
+    #youtube .video-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+  }
+
+  /* --------- Medium-large screens (max-width: 1400px) --------- */
 @media screen and (max-width: 1400px) {
+
     #profile {
         height: 83vh;
         margin-bottom: 6rem;
     }
+
     .about-containers {
         flex-wrap: wrap;
     }
+
     #contact,
     #projects {
       height: fit-content;
     }
+
 }
 
+/* --------- Medium screens (max-width: 1200px) --------- */
 @media screen and (max-width: 1200px) {
+
     #desktop-nav {
         display: none;
     }
+
     #hamburger-nav {
         display: flex;
     }
+
     #experience, 
     .experience-details-container {
         margin-top: 2rem;
     }
+
     #profile, 
     .section-container {
         display: block;
+        height: fit-content;
     }
+
     .arrow {
         display: none;
     }
-    section,
-    .section-container {
-        height: fit-content;
-    }
+
     section {
         margin: 0 5%;
+        height: fit-content;
     }
+
     .section__pic-container {
         width: 275px;
         height: 275px;
         margin: 0 auto 2rem;
     }
+
     .about-containers {
         margin-top: 0;
     }
+
+    #blog-posts .blog-post {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #blog-posts .blog-post img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
     #youtube .video-grid {
         grid-template-columns: repeat(3, 1fr);
       }
+
 }
 
+/* --------- Mobile screens (max-width: 600px) --------- */
 @media screen and (max-width: 600px) {
+
     #contact, 
     footer {
         height: 40vh;
     }
+
     #profile {
         height: 83vh;
         margin-bottom: 0;
     }
+
     article {
         font-size: 1rem;
     }
+
     footer nav {
         height: fit-content;
         margin-bottom: 2rem;
     }
-    .about-containers {
-        flex-direction: column;
-        align-items: center;
-      }
+
     .about-containers,
     .contact-info-upper-container,
     .btn-container {
         flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
     }
     
     .contact-info-container {
         margin: 0;
     }
+
     .contact-info-container p,
     .nav-links li a {
         font-size: 1rem;
     }
+
     .experience-sub-title {
         font-size: 1.25rem;
     }
+
     .logo {
         font-size: 1.5rem;
     }
+
     .nav-links {
         flex-direction: column;
         gap: 0.5rem;
         text-align: center;
     }
+
     .section__pic-container {
         width: auto;
         height: 46vw;
         justify-content: center;
     }
+
     .section__text__p2 {
         font-size: 1.25rem;
     }
+
     .title {
         font-size: 2rem;
     }
+
     .text-container {
         text-align: justify;
     }
+
     #youtube .video-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #blog-posts {
+        margin: 0 5%;
+        padding: 2rem 0;
+    }
+
     .medium-banner {
-        padding: 0.75rem 1.25rem;
+        padding: 0.75rem 1rem;
         font-size: 1rem;
-      }
+    }
+
       .medium-icon {
         width: 24px;
         height: 24px;
-      }
+    }
 }
