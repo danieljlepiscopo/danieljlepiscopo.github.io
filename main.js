@@ -16,7 +16,6 @@ async function fetchRSS() {
     const response = await fetch(apiUrl);
     if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
     const data = await response.json();
-    console.log("📦 RSS Feed Data:", data);
 
     if (data.status !== 'ok') throw new Error(`API error: ${data.message}`);
     const blogPosts = data.items.slice(0, 3).reverse().map(item => {
