@@ -308,21 +308,21 @@ section {
 }
 
 /* ------------------------------------
-   EXPERIENCE SECTION
+   Skills SECTION
 ------------------------------------ */
 
-#experience {
+#skills {
   position: relative;
 }
 
-.experience-sub-title {
+.skills-sub-title {
   color: rgb(85, 85, 85);
   font-weight: 600;
   font-size: 1.75rem;
   margin-bottom: 2rem;
 }
 
-.experience-details-container {
+.skills-details-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -350,15 +350,19 @@ article .icon {
    PROJECTS SECTION
 ------------------------------------ */
 
-#projects {
-  position: relative;
+#project-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 46px;
+  margin-top: 40px;
+  padding: 0 20px;
 }
 
 .project-card {
   background-color: #fff;
   border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   padding: 30px;
   text-align: center;
@@ -374,15 +378,17 @@ article .icon {
   height: auto;
   object-fit: cover;
   border-radius: 10px;
-  max-height: 200px;
+  max-height: 200px; 
   margin-bottom: 15px;
 }
 
 .project-title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #333;
   margin-bottom: 10px;
+  line-height: 1.3;
+  text-transform: capitalize;
 }
 
 .project-description {
@@ -390,7 +396,6 @@ article .icon {
   color: #444;
   margin-bottom: 20px;
   line-height: 1.5;
-  text-align: justify;
   text-align: center;
 }
 
