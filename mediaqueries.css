@@ -15,13 +15,28 @@
       height: fit-content;
     }
 
+    #project-cards,
+    #youtube .video-grid,
+    #blog-posts {
+        display: grid;
+        gap: 2rem;
+    }
+
 }
 
 /* --------- Base large screen fallback (min-width: 1201px) --------- */
 @media screen and (min-width: 1201px) {
 
+    #project-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
     #youtube .video-grid {
-      grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+      }
+    
+    #blog-posts {
+        grid-template-columns: repeat(1, 1fr);
     }
 
   }
@@ -67,6 +82,14 @@
         margin-top: 0;
     }
 
+    #project-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+    #youtube .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
     #blog-posts .blog-post {
         display: flex;
         gap: 1.5rem;
@@ -80,23 +103,42 @@
         border-radius: 8px;
         object-fit: cover;
     }
-
-    #youtube .video-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
 }
 
 /* --------- Mobile screens (max-width: 900px) --------- */
 @media screen and (max-width: 900px) {
 
+    #project-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 0 1rem;
+        grid-template-columns: repeat(1, 1fr);
+      }
+    
+      .project-img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+      }  
+
+    #youtube .video-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 0 1rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     #blog-posts {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 0 1rem;
         grid-template-columns: repeat(1, 1fr);
     }
 
-    #youtube .video-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
   }
 
 /* --------- Mobile screens (max-width: 600px) --------- */
@@ -169,14 +211,6 @@
     .text-container {
         text-align: justify;
     }
-
-    #youtube .video-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    #blog-posts {
-        grid-template-columns: 1fr;
-      }
 
     .medium-banner {
         padding: 0.75rem 1rem;
