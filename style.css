@@ -307,6 +307,43 @@ section {
   height: 72%;
 }
 
+.certifications-container {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.certifications-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.cert-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.cert-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 200px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.cert-icon {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
 /* ------------------------------------
    Skills SECTION
 ------------------------------------ */
