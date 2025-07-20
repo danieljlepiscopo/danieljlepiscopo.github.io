@@ -344,6 +344,25 @@ section {
   margin-bottom: 10px;
 }
 
+.cert-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  color: #3b3b3b;
+  background-color: #fffff;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.credly-icon {
+  width: 20px;
+  height: 20px;
+}
+
 /* ------------------------------------
    Skills SECTION
 ------------------------------------ */
