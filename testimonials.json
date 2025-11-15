@@ -1,0 +1,16 @@
+ {
+    "testimonials": [
+        {
+            "id": "rec-001",
+            "source": "LinkedIn",
+            "quote": "Dan is an exemplary employee and an extraordinary Network Engineer who I’ve had the pleasure getting to know over the past 4 years at Charter Communications. He has continuously worked to better our team, and his skills, often while taking classes after normal working hours for new networking and security certifications. Our team at Charter was focused on quick network deployments on the network Core and Distribution layers in support of the NetOps divisions initiatives. This required laser focus amidst a chaotic schedule that required both daytime and nighttime work to accommodate non-peak network times. Dan has taken on many extra responsibilities such as creating and updating python scripts, and helping develop a tool that automated the MOP creation process. He was instrumental in training the team and mentoring new team members. I recommend Dan for these reasons, his willingness to always help anyone who needed it and his strong leadership abilities.",
+            "author": {
+                "name": "Kenneth Garman",
+                "title": "Network Engineer I",
+                "company": "Charter Communications",
+                "linkedin": "https://www.linkedin.com/in/kengarman/"
+            },
+            "date": "11-12-2025"
+        }
+    ]
+ }
