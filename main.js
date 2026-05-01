@@ -6,8 +6,8 @@ function toggleMenu() {
     icon.classList.toggle("open");
 }
 
-// Creating a script to pull JSON from testimonials.json and apply it to my site
-fetch('testimonials.json')
+// Pulling JSON from testimonials.json and apply it to my site
+fetch('./testimonials.json')
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById('testimonial-container');
