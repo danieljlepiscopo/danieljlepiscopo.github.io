@@ -6,6 +6,31 @@ function toggleMenu() {
     icon.classList.toggle("open");
 }
 
+// Creating a script to pull JSON from testimonials.json and apply it to my site
+fetch('testimonials.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('testimonial-container');
+    if (!container) return;
+
+    data.testimonials.forEach(t => {
+      const card = document.createElement('div');
+      card.classList.add('testimonial-card');
+
+      card.innerHTML = `
+      <p class="quote">"${t.quote}"</p>
+      <div class="author">
+        <strong>${t.author.name}</strong>
+        <span>${t.author.title}, ${t.author.company}</span>
+        <a href="${t.author.linkedin}" target="_blank">LinkedIn</a>
+      </div>
+      `;
+
+      container.appendChild(card);
+    });
+  })
+  .catch(err => console.error('Error loading testimonials:', err));
+
 // Fetching blog data from Medium using RSS feed via rss2json API
 async function fetchRSS() {
   const rssUrl = 'https://medium.com/feed/@danieljlepiscopo';
