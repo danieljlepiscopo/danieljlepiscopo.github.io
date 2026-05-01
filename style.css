@@ -220,6 +220,17 @@ section {
   height: 2rem;
 }
 
+.icon-education {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-education img {
+  height: 3rem;
+}
+
 /* ------------------------------------
    BUTTONS
 ------------------------------------ */
