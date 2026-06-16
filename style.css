@@ -690,6 +690,54 @@ section {
   text-decoration: underline;
 }
 
+.testimonial-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 2rem auto 0;
+}
+
+#testimonial-container {
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: #111;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.carousel-btn:hover {
+  transform: scale(1.1);
+  background: #333;
+}
+
+.fade-in {
+  animation: fadeIn 0.35s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ------------------------------------
    BLOG SECTION
 ------------------------------------ */

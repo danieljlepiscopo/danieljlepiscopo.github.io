@@ -6,30 +6,55 @@ function toggleMenu() {
     icon.classList.toggle("open");
 }
 
-// Pulling JSON from testimonials.json and apply it to my site
+// Carousel that displays one testimonal at a time
 fetch('./testimonials.json')
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById('testimonial-container');
+    const prevBtn = document.getElementById('prev-testimonial');
+    const nextBtn = document.getElementById('next-testimonial');
+
     if (!container) return;
 
-    data.testimonials.forEach(t => {
-      const card = document.createElement('div');
-      card.classList.add('testimonial-card');
+    let currentIndex = 0;
 
-      card.innerHTML = `
-      <p class="quote">"${t.quote}"</p>
-      <div class="author">
-        <strong>${t.author.name}</strong>
-        <span>${t.author.title}, ${t.author.company}</span>
-        <a href="${t.author.linkedin}" target="_blank">LinkedIn</a>
-      </div>
+    function renderTestimonial(index) {
+      const t = data.testimonials[index];
+
+      container.innerHTML = `
+        <div class="testimonial-card fade-in">
+          <p class="quote">"${t.quote}"</p>
+
+          <div class="author">
+            <strong>${t.author.name}</strong>
+            <span>${t.author.title}, ${t.author.company}</span>
+            <a href="${t.author.linkedin}" target="_blank">LinkedIn</a>
+          </div>
+        </div>
       `;
+    }
 
-      container.appendChild(card);
+    prevBtn.addEventListener('click', () => {
+      currentIndex =
+        (currentIndex - 1 + data.testimonials.length) %
+        data.testimonials.length;
+
+      renderTestimonial(currentIndex);
     });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex =
+        (currentIndex + 1) %
+        data.testimonials.length;
+
+      renderTestimonial(currentIndex);
+    });
+
+    renderTestimonial(currentIndex);
   })
-  .catch(err => console.error('Error loading testimonials:', err));
+  .catch(err =>
+    console.error('Error loading testimonials:', err)
+  );
 
 // Fetching blog data from Medium using RSS feed via rss2json API
 async function fetchRSS() {
